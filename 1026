@@ -1,0 +1,10 @@
+T = int(input())
+a= list(map(int,input().split(" ")))
+b= list(map(int,input().split(" ")))
+a.sort()
+b.sort()
+sum1 = 0
+
+for i in range(0,len(a)):
+    sum1 = sum1 + a[i] * b[T-i-1]
+print(sum1)
