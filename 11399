@@ -1,0 +1,9 @@
+T = int(input())
+time = list(map(int,input().split(" ")))
+result = 0
+result_array = [0]
+for i in range(T):
+    time.sort()
+    result = result + time[i]
+    result_array.append(result)
+print(sum(result_array))
