@@ -1,0 +1,10 @@
+n, k = map(int,input().split(" "))
+numbers = []
+count = 0
+for i in range(n):
+    numbers.append(int(input()))
+numbers.sort(reverse=True)
+for number in numbers:
+    count = count + (k//number)
+    k = k % number
+print(count)
