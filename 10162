@@ -1,0 +1,14 @@
+T = int(input())
+timers = [300,60,10]
+count = []
+cnt = []
+for timer in timers:
+    count = T//timer
+    cnt.append(count)
+    T = T % timer
+
+if T!=0:
+    print(-1)
+else:
+    for i in range(len(timers)):
+        print(cnt[i], end=" ")
