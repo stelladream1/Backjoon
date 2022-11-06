@@ -1,0 +1,11 @@
+n = int(input())
+array = []
+arr = []
+for i in range(n):
+    a = int(input())
+    array.append(a)
+array.sort(reverse=True)
+for i in range(n):
+    if i % 3 != 2:
+        arr.append(array[i])
+print(sum(arr))
