@@ -1,0 +1,13 @@
+n,m = map(int,input().split(" "))
+array = []
+length = list(map(int,input().split(" ")))
+length.sort()
+count = 0
+for i in length:
+    if i not in array:
+        count = count + 1
+        for j in range(i,i+m):
+            if j not in array:
+                array.append(j)
+
+print(count)
