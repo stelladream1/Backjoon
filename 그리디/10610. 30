@@ -1,0 +1,11 @@
+n = int(input())
+result = 0
+array = []
+for i in str(n):
+    result = result + int(i)
+    array.append(i)
+array.sort(reverse=True)
+if result % 3 ==0 and "0" in str(n):
+    print("".join(array))
+else:
+    print(-1)
