@@ -1,0 +1,6 @@
+n = int(input())
+trees = list(map(int,input().split(" ")))
+trees.sort(reverse=True)
+for i in range(n):
+    trees[i] = trees[i] + i
+print(max(trees)+2)
