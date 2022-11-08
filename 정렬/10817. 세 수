@@ -1,0 +1,8 @@
+from collections import deque
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(10**9)
+
+array = list(map(int,input().split(" ")))
+array.sort(reverse=True)
+print(array[1])
