@@ -1,0 +1,38 @@
+from collections import deque
+
+n = int(input())
+
+visit = [[0] * n for _ in range(n) ]
+graph = []
+for _ in range(n):
+    graph.append(list(map(int,input())))
+count = 0
+dx = [-1,0,1,0]
+dy = [0,1,0,-1]
+q = deque()
+array = []
+def bfs(x,y):
+    q.append((x,y))
+    visit[x][y] = 1
+    global count
+    count = 0
+    while q:
+        x,y = q.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if 0<=nx<n and 0<=ny<n:
+                if graph[nx][ny] == 1 and visit[nx][ny]==0:
+                    visit[nx][ny]=1
+                    count = count + 1
+                    q.append((nx,ny))
+for i in range(n):
+    for j in range(n):
+        if graph[i][j]==1 and visit[i][j]==0:
+            bfs(i,j)
+            array.append(count+1)
+
+array.sort()
+print(len(array))
+for i in array:
+    print(i)
