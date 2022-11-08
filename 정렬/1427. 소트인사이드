@@ -1,0 +1,5 @@
+array = []
+n = list(map(int,input()))
+n.sort(reverse=True)
+a = "".join(map(str,n))
+print(a)
