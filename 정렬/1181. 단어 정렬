@@ -1,0 +1,13 @@
+from collections import deque
+
+n = int(input())
+array = []
+for i in range(n):
+    stx = input()
+    array.append((stx,len(stx)))
+array = list(set(array))
+array.sort()
+array =sorted(array,key = lambda x : x[1])
+
+for i in array:
+    print(i[0])
