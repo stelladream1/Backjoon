@@ -1,0 +1,54 @@
+from collections import deque
+m,n = map(int,input().split())
+visit = [[0] * n for _ in range(m)]
+graph = []
+for _ in range(m):
+    graph.append(list(map(str,input())))
+q = deque()
+dx = [-1,0,1,0]
+dy = [0,1,0,-1]
+y_result = 0
+w_result = 0
+y_count = 0
+w_count = 0
+def bfs(x,y):
+    q.append((x,y))
+    visit[x][y]=1
+
+    global y_count
+    global  w_count
+    y_count = 0
+    w_count = 0
+    global y_result
+    global  w_result
+    if graph[x][y] == "o":
+        y_count = y_count + 1
+    elif graph[x][y] == "v":
+        w_count = w_count + 1
+
+    while q:
+        x,y = q.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+
+            if 0<=nx<m and 0<=ny<n:
+                if graph[nx][ny]!="#" and visit[nx][ny]==0:
+                    visit[nx][ny] =1
+                    q.append((nx,ny))
+                    if graph[nx][ny] =="o":
+                        y_count = y_count + 1
+                    elif graph[nx][ny] =="v":
+                        w_count = w_count + 1
+
+for i in range(m):
+    for j in range(n):
+        if graph[i][j]!="#" and visit[i][j]==0:
+            bfs(i,j)
+            if w_count < y_count:
+                y_result = y_result + y_count
+            else:
+                w_result = w_result + w_count
+
+print(y_result,w_result)
+
