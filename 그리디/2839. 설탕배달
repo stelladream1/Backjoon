@@ -1,0 +1,23 @@
+n = int(input())
+result1 = 100000
+result2 = 100000
+result3 = 0
+i = 0
+if n % 5 == 0:
+    result1 = n // 5
+
+if n % 3 == 0:
+    result2 = n // 3
+
+while n > 0:
+    n = n - 5
+    i = i + 1
+    if n>=3 and n % 3 == 0:
+        result3 = i + (n // 3)
+if result3 == 0 :
+    result3 = 100000
+
+if min(result1,result2,result3) == 100000:
+    print(-1)
+else:
+    print(min(result1,result2,result3))
