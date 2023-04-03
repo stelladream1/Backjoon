@@ -1,0 +1,24 @@
+t = int(input())
+array = []
+for t in range(t):
+    array.append(input())
+
+result = 0
+now = "0999"
+answer = 0
+for i in array:
+    i = list(i)
+    answer = 0
+    string = []
+    for j in i:
+        if j in string and now ==j:
+            continue
+        elif j in string and now!=j:
+            answer = 1
+            break
+        else:
+            now = j
+            string.append(j)
+    if answer==0:
+        result = result + 1
+print(result)
